@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Atlas</title>
+
+<link rel="icon" href="https://raw.githubusercontent.com/sunraxads/atlas/refs/heads/main/IMG_3398.JPG.jpeg">
+
+<!-- META PIXEL CODE HERE -->
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+color:white;
+text-align:center;
+overflow-x:hidden;
+
+/* Deep Blue Animated Gradient */
+
+background:linear-gradient(
+-45deg,
+#020617,
+#061a33,
+#0a2c52,
+#0f3f75
+);
+
+background-size:400% 400%;
+
+animation:bg 15s ease infinite;
+
+}
+
+@keyframes bg{
+
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+
+}
+
+/* Floating Glow */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+
+radial-gradient(circle at 20% 30%,rgba(0,140,255,.2),transparent 40%),
+radial-gradient(circle at 80% 70%,rgba(0,100,255,.2),transparent 40%);
+
+animation:float 12s ease-in-out infinite alternate;
+
+z-index:-1;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0px)}
+100%{transform:translateY(-40px)}
+
+}
+
+.container{
+padding:50px 20px;
+}
+
+/* PROFILE */
+
+.profile{
+
+position:relative;
+width:140px;
+height:140px;
+margin:auto;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+.profile::before{
+
+content:"";
+position:absolute;
+
+width:140px;
+height:140px;
+
+border-radius:50%;
+
+background:conic-gradient(
+#feda75,
+#fa7e1e,
+#d62976,
+#962fbf,
+#4f5bd5,
+#feda75
+);
+
+animation:ring 6s linear infinite;
+
+}
+
+@keyframes ring{
+
+0%{transform:rotate(0deg)}
+100%{transform:rotate(360deg)}
+
+}
+
+.profile img{
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+border:5px solid #020617;
+
+z-index:2;
+
+}
+
+/* TEXT */
+
+.channel{
+font-size:28px;
+font-weight:bold;
+margin-top:20px;
+}
+
+.tagline{
+margin-top:6px;
+opacity:.85;
+}
+
+.trust{
+margin-top:12px;
+font-size:16px;
+font-weight:bold;
+color:#00ffc6;
+}
+
+/* TIMER */
+
+.timer{
+margin-top:18px;
+font-size:18px;
+font-weight:bold;
+color:#ff4d4d;
+}
+
+/* BUTTON */
+
+.join-btn{
+
+display:inline-flex;
+align-items:center;
+gap:10px;
+
+margin-top:24px;
+
+padding:16px 32px;
+
+background:#229ED9;
+
+border-radius:50px;
+
+font-size:18px;
+font-weight:bold;
+
+text-decoration:none;
+color:white;
+
+box-shadow:0 0 18px rgba(34,158,217,.8);
+
+position:relative;
+overflow:hidden;
+
+animation:pulse 2s infinite;
+
+}
+
+.join-btn img{
+width:22px;
+}
+
+@keyframes pulse{
+
+0%{transform:scale(1)}
+50%{transform:scale(1.07)}
+100%{transform:scale(1)}
+
+}
+
+.join-btn::after{
+
+content:"";
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:120%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.6),
+transparent
+);
+
+transform:skewX(-20deg);
+
+animation:sweep 3.5s infinite;
+
+}
+
+@keyframes sweep{
+
+0%{left:-120%}
+60%{left:120%}
+100%{left:120%}
+
+}
+
+/* COUNTERS */
+
+.live{
+margin-top:18px;
+font-size:17px;
+font-weight:bold;
+color:#00ff9d;
+}
+
+.members{
+margin-top:6px;
+opacity:.9;
+}
+
+/* POPUP */
+
+.popup{
+
+position:fixed;
+top:20px;
+left:20px;
+
+background:#0c1f33;
+
+padding:10px 14px;
+
+border-radius:10px;
+
+font-size:14px;
+
+box-shadow:0 0 10px rgba(0,0,0,.5);
+
+opacity:0;
+
+transform:translateY(-20px);
+
+transition:.4s;
+
+}
+
+.popup.show{
+opacity:1;
+transform:translateY(0);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="popup" class="popup"></div>
+
+<div class="container">
+
+<div class="profile">
+<img src="https://raw.githubusercontent.com/sunraxads/atlas/refs/heads/main/IMG_3398.JPG.jpeg">
+</div>
+
+<div class="channel">
+Atlas Fixer
+</div>
+
+<div class="tagline">
+Minimum Risk, Maximum Profit 💰
+</div>
+
+<div class="trust">
+98% Accuracy | Trusted by 1L+ Cricket Traders
+</div>
+
+<div class="timer">
+Free Access Close in <span id="time">30</span>s
+</div>
+
+<a class="join-btn" href="https://t.me/+QJT503JV_YZjODc1">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
+
+JOIN TELEGRAM CHANNEL
+
+</a>
+
+<div class="live">
+<span id="live">249</span> people joined in last 1 minute
+</div>
+
+<div class="members">
+<span id="members">110489</span>+ Members already joined
+</div>
+
+</div>
+
+<script>
+
+/* TIMER */
+
+let time=30;
+
+let redirect="https://t.me/+QJT503JV_YZjODc1";
+
+setInterval(()=>{
+
+if(time>0){
+
+time--;
+
+document.getElementById("time").innerText=time;
+
+}
+
+if(time==0){
+
+window.location.href=redirect;
+
+}
+
+},1000);
+
+/* LIVE JOIN COUNTER */
+
+let live=249;
+
+setInterval(()=>{
+
+let change=Math.floor(Math.random()*5)-2;
+
+live+=change;
+
+if(live<230) live=230;
+
+if(live>280) live=280;
+
+document.getElementById("live").innerText=live;
+
+},2000);
+
+/* MEMBER COUNTER */
+
+let members=110489;
+
+setInterval(()=>{
+
+members+=Math.floor(Math.random()*3);
+
+document.getElementById("members").innerText=members;
+
+},5000);
+
+/* FAKE POPUP */
+
+let names=["Rohit","Aman","Rahul","Aditya","Karan","Arjun","Vikas","Sandeep"];
+
+let cities=["Delhi","Mumbai","Lucknow","Patna","Surat","Indore","Jaipur","Pune"];
+
+setInterval(()=>{
+
+let name=names[Math.floor(Math.random()*names.length)];
+
+let city=cities[Math.floor(Math.random()*cities.length)];
+
+let popup=document.getElementById("popup");
+
+popup.innerText=name+" from "+city+" joined";
+
+popup.classList.add("show");
+
+setTimeout(()=>{
+popup.classList.remove("show");
+},3000);
+
+},7000);
+
+</script>
+
+</body>
+</html>
